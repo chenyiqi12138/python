@@ -4,7 +4,7 @@ Enter file contents here
 ID = 123456789
 PASSWORD = 000000
 MONEY = 10000
-IS_GOON = 0
+IS_GOON = 1
 print("欢迎使用ATM机。")
 print("请输入您的卡号：")
 id = int(input())
