@@ -1,17 +1,28 @@
 # -*- coding: cp936 -*-
 #coding:utf-8
-ID = 123456789
-PASSWORD = 000000
+ID = 999
+PASSWORD = 111
 MONEY = 10000
-IS_GOON = 1
-print("欢迎使用ATM机。")
-print("请输入您的卡号：")
-id = int(input())
-print("请输入您的密码：")
-password = int(input())
-if id == ID and password == PASSWORD :
-    print("---------------------------------------")
-while  1 :
+ID_ZHUAN = 123
+IS_GOON = 0
+WRONGTIME = 0
+print("欢迎使用幻蓝ATM存取款一体机。")
+while (IS_GOON == 0) :
+    if WRONGTIME > 0 :
+        print("输入错误，请重新输入。")
+    print("请输入您的卡号：")
+    id = int(input())
+    print("请输入您的密码：")
+    password = int(input())
+    if id == ID and password == PASSWORD :
+        IS_GOON = 1
+    else :
+        WRONGTIME += 1
+        if WRONGTIME > 1 :
+            print("您密码输入错误次数已超过3次，感谢您的使用。")
+            break
+print("---------------------------------------")
+while IS_GOON == 1 :
     print("请选择您需要操作的项目：")
     print("1.存款")
     print("2.取款")
@@ -51,7 +62,22 @@ while  1 :
             print("您想转入的账号不存在。")
     elif num_caozuo == 4 :
         print("您当前的余额为：")
-        print(MONEY)        
+        print(MONEY)
+    elif num_caozuo == 5 :
+        print("请输入您的原密码：")
+        password = int(input())
+        if password == PASSWORD :
+            print("请输入您的新密码：")
+            password_new1 = int(input())
+            print("请再次输入您的新密码：")
+            password_new2 = int(input())
+            if password_new1 != password_new2 :
+                print("两次密码输入不一致，取消修改。")
+            else :
+                PASSWORD = password_new1
+                print("修改成功。")
+        else :
+            print("当前密码输入错误，取消修改。")
     print("---------------------------------------")
     print("是否还需要进行其他操作：（是请输入1，否请输入2）")
     is_goon = int(input())
