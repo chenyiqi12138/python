@@ -1,0 +1,62 @@
+Enter file contents here
+# -*- coding: cp936 -*-
+#coding:utf-8
+ID = 123456789
+PASSWORD = 000000
+MONEY = 10000
+IS_GOON = 0
+print("欢迎使用ATM机。")
+print("请输入您的卡号：")
+id = int(input())
+print("请输入您的密码：")
+password = int(input())
+if id == ID and password == PASSWORD :
+    print("---------------------------------------")
+while  1 :
+    print("请选择您需要操作的项目：")
+    print("1.存款")
+    print("2.取款")
+    print("3.转账")
+    print("4.查看余额")
+    print("---------------------------------------")
+    num_caozuo = int(input())
+    if num_caozuo == 1 :
+        print("请输入您要存入的金额：")
+        money = int(input())
+        MONEY = MONEY + money
+        print("存款成功。")
+        print("您当前的余额为：")
+        print(MONEY)
+    elif num_caozuo == 2 :
+        print("请输入您要取出的金额：")
+        money = int(input())
+        if money < MONEY :
+            MONEY = MONEY - money
+            print("取款成功。")
+            print("您当前的余额为：")
+            print(MONEY)
+        else :
+            print("取款失败，账户余额不足。")
+    elif num_caozuo == 3 :
+        print("请输入您要转入的账户ID：")
+        id_zhuan = int(input())
+        if id_zhuan == ID_ZHUAN :
+            print("请输入您要转出的金额：")
+            money = int(input())
+            if money < MONEY :
+                print("转账成功。")
+            else :
+                print("帐户余额不足。")
+        else :
+            print("您想转入的账号不存在。")
+    elif num_caozuo == 4 :
+        print("您当前的余额为：")
+        print(MONEY)        
+    print("---------------------------------------")
+    print("是否还需要进行其他操作：（是请输入1，否请输入2）")
+    is_goon = int(input())
+    if is_goon == IS_GOON :
+        continue
+    else :
+        print("感谢您的使用，再见。")
+        break
